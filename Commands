@@ -1,0 +1,42 @@
+####################################Install YARA Centos####################################
+yum install epel-release
+yum install autoconf libtool
+yum install openssl-devel
+yum install file-devel
+yum install jansson jansson-devel
+yum install flex bison byacc
+yum install python36 python36-devel
+wget https://github.com/VirusTotal/yara/archive/refs/tags/v4.1.0.tar.gz
+tar xzvf v4.1.0.tar.gz
+cd yara-4.1.0
+./bootstrap.sh
+./configure --enable-cuckoo --enable-magic --enable-dotnet
+make
+make install
+make check
+
+#################################Install YARA Ubuntu/Debian############################
+apt-get install automake libtool make gcc pkg-config
+apt-get install flex bison
+wget https://github.com/VirusTotal/yara/archive/refs/tags/v4.1.0.tar.gz
+tar xzvf v4.1.0.tar.gz
+cd yara-4.1.0
+./bootstrap.sh
+./configure --enable-cuckoo --enable-magic --enable-dotnet
+make
+make install
+make check
+
+
+###############################Install YARA Windows############################
+https://github.com/VirusTotal/yara/releases/download/v4.1.0/yara-v4.1.0-1612-win64.zip
+Unzip and run the exe
+
+
+
+
+
+
+###########################Yara Rule#########################
+cd *into your diectroy where you installed yara
+git clone https://github.com/Yara-Rules/rules.git
